@@ -48,13 +48,13 @@ class mysql::config (
     unless  => "mysqladmin status -uroot -p${root_password}",
   }
 
-  exec { 'mysql-drop-test-database'
+  exec { 'mysql-drop-test-database':
     command     => "mysql -uroot -p${root_password} -e \"DROP DATABASE test;\"",
     refreshonly => true,
     subscribe   => Exec['mysql-set-root-password'],
   }
 
-  exec { 'mysql-disable-anonymous-user'
+  exec { 'mysql-disable-anonymous-user':
     command     => "mysql -uroot -p${root_password} -e \"DROP USER ''@localhost;\"",
     refreshonly => true,
     subscribe   => Exec['mysql-set-root-password'],

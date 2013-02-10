@@ -24,16 +24,17 @@ define mysql::resource::user (
   $object     = '*.*',
 ) {
   Exec {
-    path => '/bin:/sbin:/usr/bin:/usr/sbin',
+    path    => '/bin:/sbin:/usr/bin:/usr/sbin',
+    require => Class['mysql::config']
   }
 
   if ($password == undef or $password == '') {
     fail('You must set a password')
   }
 
-  exec { "mysql-create-user-${username}"
+  exec { "mysql-create-user-${username}":
     command => "mysql -uroot -p${mysql::config::root_password} -e \"CREATE USER ${username}@localhost IDENTIFIED BY '${password}';\"",
-    unless  => "mysql -u${username} -p${password} -e 'SHOW DATABASES'"
+    unless  => "mysql -u${username} -p${password} -e 'SHOW DATABASES'",
     notify  => Exec["mysql-setup-user-${username}"],
   }
 
