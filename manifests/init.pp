@@ -4,8 +4,7 @@
 #
 # Parameters:
 #
-# There are no default parameters for this class. All module parameters are managed
-# via the mysql::params class
+#   [*root_password*] - Password for root user
 #
 # Actions:
 #
@@ -18,12 +17,17 @@
 # node default {
 #   include mysql
 # }
-class mysql inherits mysql::params {
+class mysql (
+  $root_password = undef
+) inherits mysql::params {
   class { 'mysql::package': 
     notify => Class['mysql::service'],
   }
 
-  class { 'mysql::config': }
+  class { 'mysql::config':
+    root_password => $root_password,
+    notify        => Class['mysql::service'],
+  }
 
   class { 'mysql::service': }
 }
