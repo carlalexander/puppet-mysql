@@ -29,7 +29,7 @@ define mysql::resource::user (
   }
 
   if ($password == undef or $password == '') {
-    fail('You must set a password')
+    fail('You must set a user password')
   }
 
   exec { "mysql-create-user-${username}":
