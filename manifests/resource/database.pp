@@ -1,9 +1,9 @@
-# Define: mysql::resource::user
+# Define: mysql::resource::database
 #
 # This definition creates mysql database
 #
 # Parameters:
-#   [*dbname*]        - Username of the new user. Default [$name]
+#   [*dbname*]        - Database name. Default [$name]
 #   [*character_set*] - Database character set. Default: utf8
 #   [*collate*]       - Database collation
 #
