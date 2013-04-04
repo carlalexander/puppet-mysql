@@ -1,6 +1,6 @@
 # Define: mysql::resource::user
 #
-# This definition creates a database user
+# This definition creates a MySQL database user
 #
 # Parameters:
 #   [*username*]    - Username of the new user. Default [$name]

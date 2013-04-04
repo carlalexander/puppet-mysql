@@ -1,3 +1,18 @@
+# Class: mysql::params
+# 
+# This class manages MySQL parameters.
+# 
+# Parameters:
+#
+# There are no default parameters for this class.
+#
+# Actions:
+#
+# Requires:
+#
+# Sample Usage:
+#
+# This class file is not called directly
 class mysql::params {
   $backup_dir = '/var/backups'
   $base_dir   = '/usr'

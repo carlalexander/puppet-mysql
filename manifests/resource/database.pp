@@ -1,6 +1,6 @@
 # Define: mysql::resource::database
 #
-# This definition creates mysql database
+# This definition creates MySQL database
 #
 # Parameters:
 #   [*dbname*]        - Database name. Default [$name]

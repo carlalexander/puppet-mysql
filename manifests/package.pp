@@ -1,6 +1,6 @@
-# Class: nginx::package
+# Class: mysql::package
 #
-# This module manages NGINX package installation
+# This module manages MySQL package installation
 #
 # Parameters:
 #
